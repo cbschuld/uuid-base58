@@ -28,4 +28,4 @@ The uuid58 package provides three functions which can be imported
 
 There is an additional performance hit to translate a v4 UUID into base58.  In testing I found the overhead for the translation to base58 adds an additional 31%.  In 100k calculation batches I found that v4 uuid calculation took 1.606s/100k vs 2.319s/100k for uuid58.  Thus, 69% of the runtime was consumed calculating a v4 uuid.  Additional work could be done to bring the uuid calcation internal and attempt to make it more performant.
 
-![performance graph](https://raw.githubusercontent.com/cbschuld/uuid-base58/raw/master/__tests__/performance.png)
+![performance graph](https://raw.githubusercontent.com/cbschuld/uuid-base58/master/__tests__/performance.png)
