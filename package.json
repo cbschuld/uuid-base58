@@ -1,0 +1,36 @@
+{
+  "name": "uuid-base58",
+  "version": "1.0.0",
+  "description": "Generate a v4 UUID but return it encoded in base58",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbschuld/uuid-base58.git"
+  },
+  "keywords": [],
+  "author": "Chris Schuld <cbschuld@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cbschuld/uuid-base58/issues"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "homepage": "https://github.com/cbschuld/uuid-base58#readme",
+  "devDependencies": {
+    "prettier": "^2.0.4",
+    "tslint": "^6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/uuid": "^7.0.2",
+    "uuid": "^7.0.3"
+  }
+}
