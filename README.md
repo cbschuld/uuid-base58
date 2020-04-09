@@ -42,6 +42,10 @@ There is an additional performance hit to translate a v4 UUID into base58.  In t
 
 ![performance graph](https://raw.githubusercontent.com/cbschuld/uuid-base58/master/__tests__/performance.png)
 
+## Contact
+
+*Twitter* - @cbschuld
+
 ## Contributing
 
 Yes, thank you!  Please update the docs and tests and add your name to the package.json file.
