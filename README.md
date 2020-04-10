@@ -42,9 +42,15 @@ There is an additional performance hit to translate a v4 UUID into base58.  In t
 
 ![performance graph](https://raw.githubusercontent.com/cbschuld/uuid-base58/master/__tests__/performance.png)
 
+## Base58 Alphabet
+
+This solution uses the Bitcoin / IPFS hash alphabet: 123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz
+
+[Additional information on Base-58](https://en.wikipedia.org/wiki/Base58).
+
 ## Contact
 
-*Twitter* - @cbschuld
+**Twitter** - @cbschuld
 
 ## Contributing
 
