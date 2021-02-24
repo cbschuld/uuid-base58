@@ -32,3 +32,11 @@ export const decode = (uuidBase58: string): string => {
     throw new Error(e);
   }
 };
+
+export const valid = (uuidBase58: string): boolean => {
+  try {
+    return decode(uuidBase58).length === 36;
+  }
+  catch(e) {}
+  return false;
+}

@@ -1,6 +1,6 @@
 {
   "name": "uuid-base58",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Generate a RFC4122 compliant v4 UUID and return it encoded in base-58.",
   "scripts": {
     "test": "jest --config jestconfig.json",
@@ -29,16 +29,16 @@
   ],
   "homepage": "https://github.com/cbschuld/uuid-base58#readme",
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "jest": "^25.2.7",
-    "prettier": "^2.0.4",
-    "ts-jest": "^25.3.1",
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.2",
     "tslint": "^6.1.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.8.3"
+    "typescript": "^4.2.2"
   },
   "dependencies": {
-    "@types/uuid": "^7.0.2",
-    "uuid": "^7.0.3"
+    "@types/uuid": "^8.3.0",
+    "uuid": "^8.3.2"
   }
 }
