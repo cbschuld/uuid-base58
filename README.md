@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
 </p>
 
-Generate a RFC4122 compliant v4 UUID and return it encoded in base-58.  This is great for creating unique IDs which only consume 22 characters of storage.  Also provides base-58 encoding and decoding.
+Generate a RFC4122 compliant v4 UUID and return it encoded in base-58.  This is great for creating unique IDs which only consume 22 characters of storage.  Also provides base-58 encoding, decoding and validation.
 
 ## Installation
 
@@ -14,12 +14,22 @@ Generate a RFC4122 compliant v4 UUID and return it encoded in base-58.  This is 
 npm install uuid-base58
 ```
 
-## Usage
+## Usage: creating a base58 UUID string
 
 ```typescript
 import { uuid58 } from "uuid-base58";
 
 const id = uuid58();
+```
+
+## Usage: validation of a base58 UUID string
+
+```typescript
+import { strict as assert } from 'assert';
+import { uuid58, isValid } from "uuid-base58";
+
+const id = uuid58();
+assert(valid(id)); // true
 ```
 
 ## API
@@ -29,6 +39,11 @@ The uuid58 package provides three functions which can be imported
 + `uuid58` - creates the RFC4122 v4 UUID encoded in base-58
 + `encode(string)` - encodes a base-16 string in base-58
 + `decode(string)` - decodes a string from base-58 to base-16
++ `valid(string)` - returns true if the string is a valid base-58 string
+
+## Notes on validation with valid(string)
+
+The validation is optimistic such that if the encoding will decode into a valid UUID it will return true.  The validation will return false if the representative number overflows 128bits or if the base58 number is zero (0).  A UUID-based base58 value of `1` is a valid UUID of `00000000-0000-0000-0000-000000000000` and a base58 value of `2` is `00000000-0000-0000-0000-000000000001`.  These are valid base58 values that can become valid UUIDs.  The `valid()` function will also return false if a character in the base58 is not supported in the encoding hash alphabet which does not include `l` or `0` as an example.
 
 ## Testing
 
