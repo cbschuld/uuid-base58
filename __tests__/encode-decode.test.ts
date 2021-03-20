@@ -1,12 +1,8 @@
 import { uuid58, encode, decode, valid } from '../src/index';
-import { v4 as uuid } from 'uuid';
-
-test('test uuid creation', () => {
-    expect(typeof uuid()).toBe('string');
-});
 
 test('test the encoder', () => {
-    expect(typeof uuid58()).toBe('string');
+    const id = uuid58();
+    expect(id.length).toBeGreaterThan(21);
 });
 
 test('test the encoder (1) - accuracy', () => {
@@ -33,6 +29,12 @@ test('test the encoder (4) - accuracy', () => {
     expect(encode(b16)).toBe(b58);
 });
 
+test('test the encoder - incorrect data', () => {
+    const b58 = "XFmQuGhecfwDoBwykU1EC";
+    const b16 = "\t043969ad-6071-4340-a526-1123c717ea65";
+    expect(encode(b16)).toBe(b58);
+});
+
 test('test the decoder (1) - accuracy', () => {
     const b58 = "WikrejGwJvP7GE5tKXHo7Y";
     const b16 = "f0ad8aff-32bc-490d-b1af-4dbd04e1e153";
@@ -52,7 +54,7 @@ test('test the decoder (3) - accuracy', () => {
 });
 
 test('test the decoder', () => {
-    const id = uuid();
+    const id = 'cd94c8a0-0bf9-4115-a807-408f64bbf1de';
     const e = encode(id);
     expect(decode(e)).toBe(id);
 });
@@ -95,4 +97,15 @@ test('test the validator (error state) (1)', () => {
 test('test the validator (zero)', () => {
     const b58 = "0"; // this number is larger than 128bit, will fail
     expect(valid(b58)).toBe(false);
+});
+
+test('test the validator (bad input)', () => {
+    expect(valid("0-1")).toBe(false);
+    expect(valid("dutq34ut98adsgf0-as8dyfpq34knqwetheW.23.23..23E89FHA98SDY9Y234H5")).toBe(false);
+    expect(valid("  ")).toBe(false);
+    expect(valid("")).toBe(false);
+    expect(valid("-----")).toBe(false);
+    expect(valid("43975098234765702347560892734095872983758907238975982739857298375982375987238975203875")).toBe(false);
+    expect(valid(".........")).toBe(false);
+    expect(valid(".")).toBe(false);
 });
