@@ -60,13 +60,13 @@ There is finite performance cost to translate a v4 UUID into base58.  Testing th
 
 ### Performance Update (>=v1.2.0)
 
-In version =>1.2 additional performance work was completed by removing the validation process from the v4 UUID calculation and the runtime from the amazing [uuid](https://github.com/uuidjs/uuid) project was lifted and placed into `src/uuid` of this project.  The package reduction was significant: 340k to 48k.  Unfortunately little to no substantial performance increase although it was noticed v1.2 did consistently score better in realtime results but user+system remained nearly the same over 4M test generations.  Additionally, the UUID string management process was updated to not create a traditional dashed uuid and the `uuid` v4 validation process was removed (*which addresses specific user input and does not intersect v4 calculation*).  Performance increases are likely at a point of diminishing returns.
+In version =>1.2 additional performance work was completed by removing the validation process from the v4 UUID calculation and the runtime from the amazing [uuid](https://github.com/uuidjs/uuid) project was lifted and placed into `src/uuid` of this project.  The package reduction was significant: 340kB to 5kB (18kB unpacked).  Unfortunately little to no substantial performance increase although it was noticed v1.2 did consistently score better in realtime results but user+system remained nearly the same over 4M test generations.  Additionally, the UUID string management process was updated to not create a traditional dashed uuid and the `uuid` v4 validation process was removed (*which addresses specific user input and does not intersect v4 calculation*).  Performance increases are likely at a point of diminishing returns.
 
 ![performance graph](https://user-images.githubusercontent.com/231867/111826829-65468080-88a6-11eb-86ad-3f254c017a89.png)
 
 ## Package Size
 
-For version >= 1.2.X the official dependency on the [uuid](https://github.com/uuidjs/uuid) project was removed.  The solution and dependency are still in use but only the portion required for a v4 UUID was marshalled over.  The runtime was altered slightly and added to the `src/uuid` path.  Current sizing is around 48k, down from 340k.
+For version >= 1.2.X the official dependency on the [uuid](https://github.com/uuidjs/uuid) project was removed.  The solution and dependency are still in use but only the portion required for a v4 UUID was marshalled over.  The runtime was altered slightly and added to the `src/uuid` path.  Current sizing is around 5kB (18kB unpacked), down from 340kB.
 
 ## Base58 Alphabet
 
