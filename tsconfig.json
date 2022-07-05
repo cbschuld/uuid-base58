@@ -2,10 +2,12 @@
   "compilerOptions": {
     "target": "es2020",
     "module": "es2020",
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./lib/esm",
-    "strict": true
+    "strict": true,
+    "allowJs": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
