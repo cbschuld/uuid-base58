@@ -2,7 +2,7 @@ import { uuid58, encode, decode, valid } from '../src/index';
 
 test('test the encoder', () => {
     const id = uuid58();
-    expect(id.length).toBeGreaterThan(21);
+    expect(id.length).toBeGreaterThanOrEqual(21);
 });
 
 test('test the encoder (1) - accuracy', () => {
