@@ -4,7 +4,7 @@
   <img alt="npm" src="https://img.shields.io/npm/dw/uuid-base58?style=flat-square"/><!-- downloads -->
   <img alt="license" src="https://img.shields.io/npm/l/uuid-base58?style=flat-square"/><!-- license -->
   <img alt="size" src="https://img.shields.io/bundlephobia/min/uuid-base58"/><!-- bundle size -->
-  <img alt="build" src="https://img.shields.io/github/workflow/status/cbschuld/uuid-base58/CI"/><!-- build -->
+  <img alt="build" src="https://img.shields.io/github/actions/workflow/status/cbschuld/uuid-base58/ci.yml?branch=master"/><!-- build -->
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"/><!-- PRs welcome -->
 </p>
 
