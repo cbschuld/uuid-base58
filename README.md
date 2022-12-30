@@ -42,6 +42,7 @@ The uuid58 package provides three functions which can be imported
 - `encode(string)` - encodes a base-16 string in base-58
 - `decode(string)` - decodes a string from base-58 to base-16
 - `valid(string)` - returns true if the string is a valid base-58 string
+- `uuidV4NoDash()` - creates a RFC4122 v4 UUID without dashes
 
 ## Notes on validation with valid(string)
 

@@ -1,6 +1,6 @@
 {
   "name": "uuid-base58",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Generate a RFC4122 compliant v4 UUID and return it encoded in base-58.",
   "scripts": {
     "test": "jest",
@@ -22,7 +22,8 @@
     "base58",
     "uuid",
     "encoding",
-    "decoding"
+    "decoding",
+    "uuid v4"
   ],
   "author": "Chris Schuld <cbschuld@gmail.com>",
   "license": "MIT",
