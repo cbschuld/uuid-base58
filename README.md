@@ -28,7 +28,7 @@ const id = uuid58();
 
 ```typescript
 import { strict as assert } from 'assert';
-import { uuid58, isValid } from 'uuid-base58';
+import { uuid58, valid } from 'uuid-base58';
 
 const id = uuid58();
 assert(valid(id)); // true
@@ -36,7 +36,7 @@ assert(valid(id)); // true
 
 ## API
 
-The uuid58 package provides three functions which can be imported
+The uuid58 package provides the following functions:
 
 - `uuid58` - creates the RFC4122 v4 UUID encoded in base-58
 - `encode(string)` - encodes a base-16 string in base-58
@@ -81,6 +81,61 @@ This solution uses the Bitcoin / IPFS hash alphabet:
 ```
 
 [Additional information on Base-58](https://en.wikipedia.org/wiki/Base58).
+
+## Environment Support
+
+- CommonJS: `const { uuid58 } = require('uuid-base58')`
+- ESM (Node/bundlers): `import { uuid58 } from 'uuid-base58'`
+- Node versions: tested on Node 18/20/22; engines set to `>=14`.
+- Browser: RNG prefers `globalThis.crypto.getRandomValues`. If unavailable (very old browsers), a secure RNG is required and an error is thrown. Most modern browsers support Web Crypto.
+
+### Examples
+
+CommonJS (Node):
+
+```js
+// index.cjs
+const { uuid58, encode, decode, valid, uuidV4NoDash } = require('uuid-base58');
+
+const id = uuid58();
+console.log('uuid58:', id);
+console.log('valid:', valid(id));
+```
+
+ESM (Node or bundlers):
+
+```js
+// index.mjs or in a TypeScript file
+import { uuid58, encode, decode, valid, uuidV4NoDash } from 'uuid-base58';
+
+const id = uuid58();
+console.log('uuid58:', id);
+console.log('valid:', valid(id));
+```
+
+Browser (with bundler):
+
+```ts
+// In a front-end app (Vite, Webpack, etc.)
+import { uuid58 } from 'uuid-base58';
+
+// Requires Web Crypto (available in modern browsers)
+const id = uuid58();
+document.body.textContent = id;
+```
+
+See a runnable Vite example in `examples/vite-basic`.
+
+## Migration from v1.x to v2.0
+
+**Breaking Changes:**
+- **Node.js 14+ required** - upgrade Node.js if using older versions
+- **Package exports enforced** - only use documented import paths (`import { uuid58 } from 'uuid-base58'`)
+
+**Non-breaking:**
+- All API functions work identically
+- CommonJS imports unchanged
+- Enhanced browser compatibility
 
 ## Contact
 
