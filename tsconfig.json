@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
+    "target": "es2022",
+    "module": "es2022",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./lib/esm",
     "strict": true,
-    "allowJs": true
+    "allowJs": true,
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
